@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.11
+FROM debian:stretch-slim
 MAINTAINER Capt.Insano
 
 #Dockerfile based on Dockerfiles of smdion
