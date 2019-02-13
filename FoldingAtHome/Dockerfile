@@ -1,4 +1,4 @@
-FROM lsiobase/ubuntu:bionic
+FROM phusion/baseimage:0.9.19
 MAINTAINER Capt.Insano
 
 #Dockerfile based on Dockerfiles of smdion
