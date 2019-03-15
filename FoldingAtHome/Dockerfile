@@ -1,5 +1,5 @@
-FROM phusion/baseimage:0.9.19
-MAINTAINER Capt.Insano
+FROM phusion/baseimage:0.11 #ubuntu 18.04
+MAINTAINER MobiusNine
 
 #Dockerfile based on Dockerfiles of smdion
 
