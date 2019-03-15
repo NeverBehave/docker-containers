@@ -37,7 +37,7 @@ apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* && \
 
 #Install opencl
-apt install -qy ocl-icd-libopencl1 && \
+apt install -qy nvidia-opencl-dev && \
 
 
 #Install FAHClient
