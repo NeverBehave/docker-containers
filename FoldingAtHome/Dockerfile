@@ -30,6 +30,12 @@ usermod -g 100 nobody && \
 usermod -d /home nobody && \
 chown -R nobody:users /home && \
 
+#Install nvidia driver
+add-apt-repository ppa:graphics-drivers/ppa && \
+apt update && \
+apt upgrade && \
+apt install nvidia-driver-410 && \
+
 #Install FAHClient
 apt-get update -q && \
 apt-get install -qy wget && \
