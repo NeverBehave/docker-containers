@@ -30,16 +30,13 @@ usermod -g 100 nobody && \
 usermod -d /home nobody && \
 chown -R nobody:users /home && \
 
-#Install wget
+#Install wget/opencl
 apt-get update -q && \
 apt-get install -qy wget && \
-apt-get clean -y && \
-rm -rf /var/lib/apt/lists/* && \
-
-#Install opencl
 apt-get install -y ocl-icd-opencl-dev && \
 apt-get install -y nvidia-opencl-dev && \
-
+apt-get clean -y && \
+rm -rf /var/lib/apt/lists/* && \
 
 #Install FAHClient
 wget --no-check-certificate -P /tmp/ https://download.foldingathome.org/releases/public/release/fahclient/debian-testing-64bit/v7.4/fahclient_7.4.4_amd64.deb && \
