@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.11 #ubuntu 18.04
+FROM phusion/baseimage:0.11
 MAINTAINER MobiusNine
 
 #Dockerfile based on Dockerfiles of smdion
