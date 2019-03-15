@@ -33,7 +33,7 @@ chown -R nobody:users /home && \
 #Install nvidia driver
 add-apt-repository ppa:graphics-drivers/ppa && \
 apt update -q && \
-apt upgrade && \
+apt upgrade -qy && \
 apt install -qy nvidia-driver-410 && \
 
 #Install FAHClient
