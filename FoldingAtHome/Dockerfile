@@ -30,17 +30,28 @@ usermod -g 100 nobody && \
 usermod -d /home nobody && \
 chown -R nobody:users /home && \
 
-#Install FAHClient
+#Install wget
 apt-get update -q && \
 apt-get install -qy wget && \
 apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* && \
-wget --no-check-certificate -P /tmp/ https://download.foldingathome.org/releases/public/release/fahclient/debian-testing-64bit/v7.4/fahclient_7.4.4_amd64.deb && \
 
+#Install Cuda
+wget --no-check-certificate -P /tmp/ https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb && \
+dpkg -i cuda-repo-ubuntu1804_10.1.105-1_amd64.deb && \
+apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub && \
+apt-get update -q && \
+apt-get install -qy cuda && \
+rm /tmp/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb && \
+
+#Install FAHClient
+wget --no-check-certificate -P /tmp/ https://download.foldingathome.org/releases/public/release/fahclient/debian-testing-64bit/v7.4/fahclient_7.4.4_amd64.deb && \
 mkdir -p /opt/fah && \
 dpkg -x /tmp/fahclient_7.4.4_amd64.deb /opt/fah  && \
 rm /tmp/fahclient_7.4.4_amd64.deb && \
 chown -R nobody:users /opt/fah && \
+
+#Remove wget
 apt-get purge --remove wget -y && \
 apt-get autoremove -y && \
 
