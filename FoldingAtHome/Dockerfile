@@ -30,12 +30,17 @@ usermod -g 100 nobody && \
 usermod -d /home nobody && \
 chown -R nobody:users /home && \
 
-#Install wget/opencl/nvidia settings
+#Install wget/opencl/nvidia driver
+apt-get apt-get purge nvidia* && \
+add-apt-repository ppa:graphics-drivers && \
 apt-get update -q && \
+apt-get install nvidia-418 && \
+
 apt-get install -qy wget && \
+
 apt-get install -qy ocl-icd-opencl-dev && \
 apt-get install -qy nvidia-opencl-dev && \
-apt-get install -qy nvidia-settings-updates && \
+
 apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* && \
 
