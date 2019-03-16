@@ -31,6 +31,9 @@ usermod -d /home nobody && \
 chown -R nobody:users /home && \
 
 #Install wget/opencl/nvidia driver/cuda
+apt-get update -qy && \
+apt-get install -qy wget && \
+
 add-apt-repository ppa:graphics-drivers && \
 
 wget --no-check-certificate -P /tmp/ https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb && \
@@ -42,8 +45,6 @@ apt-get install -qy nvidia-driver-418 && \
 
 sudo apt-get install cuda && \
 rm /tmp/cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb && \
-
-apt-get install -qy wget && \
 
 apt-get install -qy ocl-icd-opencl-dev && \
 apt-get install -qy nvidia-opencl-dev && \
