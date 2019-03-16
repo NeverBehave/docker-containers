@@ -31,10 +31,10 @@ usermod -d /home nobody && \
 chown -R nobody:users /home && \
 
 #Install wget/opencl/nvidia driver
-apt-get apt-get purge nvidia* && \
+apt-get purge -qy nvidia* && \
 add-apt-repository ppa:graphics-drivers && \
-apt-get update -q && \
-apt-get install nvidia-418 && \
+apt-get update -qy && \
+apt-get install -qy nvidia-418 && \
 
 apt-get install -qy wget && \
 
