@@ -35,7 +35,7 @@ apt-get update -q && \
 apt-get install -qy wget && \
 apt-get install -qy ocl-icd-opencl-dev && \
 apt-get install -qy nvidia-opencl-dev && \
-apt-get install -qy nvidia-current-updates nvidia-settings-updates && \
+apt-get install -qy nvidia-settings-updates && \
 apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* && \
 
