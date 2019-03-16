@@ -33,7 +33,7 @@ chown -R nobody:users /home && \
 #Install wget/opencl/nvidia driver
 add-apt-repository ppa:graphics-drivers && \
 apt update -qy && \
-apt install -qy nvidia-415 && \
+apt install -qy nvidia-driver-415 && \
 
 apt-get update -qy && \
 apt-get install -qy wget && \
