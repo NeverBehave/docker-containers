@@ -30,11 +30,12 @@ usermod -g 100 nobody && \
 usermod -d /home nobody && \
 chown -R nobody:users /home && \
 
-#Install wget/opencl
+#Install wget/opencl/nvidia settings
 apt-get update -q && \
 apt-get install -qy wget && \
-apt-get install -y ocl-icd-opencl-dev && \
-apt-get install -y nvidia-opencl-dev && \
+apt-get install -qy ocl-icd-opencl-dev && \
+apt-get install -qy nvidia-opencl-dev && \
+apt-get install -qy nvidia-current-updates nvidia-settings-updates && \
 apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* && \
 
