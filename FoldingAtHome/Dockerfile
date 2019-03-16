@@ -36,15 +36,15 @@ apt-get install -qy wget && \
 
 add-apt-repository ppa:graphics-drivers && \
 
-wget --no-check-certificate -P /tmp/ https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb && \
-dpkg -i /tmp/cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb && \
-apt-key add /var/cuda-repo-<version>/7fa2af80.pub && \
+wget --no-check-certificate -P /tmp/ https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb && \
+dpkg -i /tmp/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb && \
+apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub && \
 
 apt-get update -qy && \
 apt-get install -qy nvidia-driver-418 && \
 
-sudo apt-get install cuda && \
-rm /tmp/cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb && \
+apt-get install cuda && \
+rm /tmp/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb && \
 
 apt-get install -qy ocl-icd-opencl-dev && \
 apt-get install -qy nvidia-opencl-dev && \
