@@ -30,31 +30,23 @@ usermod -g 100 nobody && \
 usermod -d /home nobody && \
 chown -R nobody:users /home && \
 
-#Install wget/opencl/nvidia driver/cuda
-apt-get update -qy && \
-apt-get install -qy wget && \
-
+#Install wget/opencl/nvidia driver
 add-apt-repository ppa:graphics-drivers && \
-
-wget --no-check-certificate -P /tmp/ https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb && \
-dpkg -i /tmp/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb && \
-apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub && \
-
 apt-get update -qy && \
-apt-get install -qy nvidia-driver-418 && \
 
-apt-get install -qy cuda && \
-rm /tmp/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb && \
+apt-get install -qy nvidia-driver-418 && \
 
 apt-get install -qy ocl-icd-opencl-dev && \
 apt-get install -qy nvidia-opencl-dev && \
 
+apt-get install -qy wget && \
+
 apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* && \
 
-#for fan control setting later
-#nvidia-xconfig --enable-all-gpus && \
-#nvidia-xconfig --cool-bits=4 && \
+#for fan control setting
+nvidia-xconfig --enable-all-gpus && \
+nvidia-xconfig --cool-bits=4 && \
 
 #Install FAHClient
 wget --no-check-certificate -P /tmp/ https://download.foldingathome.org/releases/public/release/fahclient/debian-testing-64bit/v7.4/fahclient_7.4.4_amd64.deb && \
