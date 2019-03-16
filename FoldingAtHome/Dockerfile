@@ -43,7 +43,7 @@ apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repo
 apt-get update -qy && \
 apt-get install -qy nvidia-driver-418 && \
 
-apt-get install cuda && \
+apt-get install -qy cuda && \
 rm /tmp/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb && \
 
 apt-get install -qy ocl-icd-opencl-dev && \
