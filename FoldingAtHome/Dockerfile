@@ -39,16 +39,13 @@ apt-get install -qy nvidia-driver-418 && \
 apt-get install -qy ocl-icd-opencl-dev && \
 apt-get install -qy nvidia-opencl-dev && \
 
-apt-get install -qy xauth xorg openbox lightdm plymouth && \
-
 apt-get install -qy wget && \
 
 apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* && \
 
 #for fan control setting
-nvidia-xconfig --enable-all-gpus && \
-nvidia-xconfig --cool-bits=4 && \
+nvidia-xconfig -a --allow-empty-initial-configuration --cool-bits=28 --use-display-device="DFP-0" --connected-monitor="DFP-0" --enable-all-gpus && \
 
 #Install FAHClient
 wget --no-check-certificate -P /tmp/ https://download.foldingathome.org/releases/public/release/fahclient/debian-testing-64bit/v7.4/fahclient_7.4.4_amd64.deb && \
