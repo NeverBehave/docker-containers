@@ -39,7 +39,7 @@ apt-get install -qy nvidia-driver-418 && \
 apt-get install -qy ocl-icd-opencl-dev && \
 apt-get install -qy nvidia-opencl-dev && \
 
-apt-get install xorg openbox
+apt-get install xorg openbox && \
 
 apt-get install -qy wget && \
 
