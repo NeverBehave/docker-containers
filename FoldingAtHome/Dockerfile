@@ -41,8 +41,8 @@ rm -rf /var/lib/apt/lists/* && \
 #Install FAHClient
 wget --no-check-certificate -P /tmp/ https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.5/latest.deb && \
 mkdir -p /opt/fah && \
-dpkg -x /tmp/fahclient_7.4.4_amd64.deb /opt/fah  && \
-rm /tmp/fahclient_7.4.4_amd64.deb && \
+dpkg -x /tmp/latest.deb /opt/fah  && \
+rm /tmp/latest.deb && \
 chown -R nobody:users /opt/fah && \
 
 #Remove wget
