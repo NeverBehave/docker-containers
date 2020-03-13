@@ -30,30 +30,19 @@ usermod -g 100 nobody && \
 usermod -d /home nobody && \
 chown -R nobody:users /home && \
 
-#Install wget/opencl/nvidia driver
-add-apt-repository ppa:graphics-drivers && \
-apt-get update -qy && \
-
-apt-get install -qy nvidia-driver-418 && \
-
-apt-get install -qy ocl-icd-opencl-dev && \
-apt-get install -qy nvidia-opencl-dev && \
-
-apt-get install -qy xorg-server && \
-
+#Install wget/opencl
+apt-get update -q && \
 apt-get install -qy wget && \
-
+apt-get install -y ocl-icd-opencl-dev && \
+apt-get install -y nvidia-opencl-dev && \
 apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* && \
 
-#for fan control setting
-nvidia-xconfig -a --allow-empty-initial-configuration --cool-bits=28 --use-display-device="DFP-0" --connected-monitor="DFP-0" --enable-all-gpus && \
-
 #Install FAHClient
-wget --no-check-certificate -P /tmp/ https://download.foldingathome.org/releases/public/release/fahclient/debian-testing-64bit/v7.4/fahclient_7.4.4_amd64.deb && \
+wget --no-check-certificate -P /tmp/ https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.5/latest.deb && \
 mkdir -p /opt/fah && \
-dpkg -x /tmp/fahclient_7.4.4_amd64.deb /opt/fah  && \
-rm /tmp/fahclient_7.4.4_amd64.deb && \
+dpkg -x /tmp/latest.deb /opt/fah  && \
+rm /tmp/latest.deb && \
 chown -R nobody:users /opt/fah && \
 
 #Remove wget
