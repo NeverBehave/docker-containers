@@ -1,34 +1,38 @@
 # Folding At Home for Docker 
 
-> https://www.wikiwand.com/en/Folding@home
+> Folding@home（簡稱FAH或F@h）是一个研究蛋白质折叠、误折、聚合及由此引起的相关疾病的分布式计算工程。由斯坦福大学化學系的潘德实验室（Pande Lab）主持。
 
-[中文说明](README_CN.md)
+> https://www.wikiwand.com/zh/Folding@home
 
-## Edited 
+[English README](README.md)
 
-- Pass all parameter as ENV
+## 修订
 
-Run this image for CoronaVirus! https://foldingathome.org/2020/03/10/covid19-update/
+- 使用环境变量传入参数
 
-## Run
+如果你的服务器/主机还有空余算力，运行这个镜像来帮助解析冠状病毒!
 
-### Quick Start
+ https://foldingathome.org/2020/03/10/covid19-update/
+
+## 运行
+
+### 快速开始
 
 ```bash
 docker run -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 neverbehave/folding-at-home 
 ```
 
-With your team and name
+使用自己的队伍和名称
 
 ```bash
 docker run -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 -e TEAM_ID=239854 -e USER_ID=NeverBehave neverbehave/folding-at-home 
 ```
 
-Then head to http://client.foldingathome.org/ to check your status
+然后打开网页客户端  http://client.foldingathome.org/ 检查客户端状态
 
-### Setting
+### 设置
 
-#### Environment Variables
+#### 可用的环境变量
 
 | Name        | Accept Value              | Required | Default                |
 | ----------- | ------------------------- | -------- | ---------------------- |
@@ -41,7 +45,7 @@ Then head to http://client.foldingathome.org/ to check your status
 | ALLOW_SUBNET_WEB | CIDR Range              |          | 0.0.0.0/0       |
 | POWER        | light,medium,full    |       | medium  |
 
-#### Custom Config
+#### 使用自己的配置
 
 ```bash
 docker run neverbehave/folding-at-home -v your-location:/config
