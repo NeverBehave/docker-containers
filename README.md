@@ -15,22 +15,30 @@ Run this image for CoronaVirus! https://foldingathome.org/2020/03/10/covid19-upd
 ### Quick Start
 
 ```bash
-docker run -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 neverbehave/folding-at-home 
+docker run -d  --restart unless-stopped --name fah-client -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 neverbehave/folding-at-home 
 ```
 
 With your team and name
 
 ```bash
-docker run -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 -e TEAM_ID=239854 -e USER_ID=NeverBehave neverbehave/folding-at-home 
+docker run -d  --restart unless-stopped --name fah-client -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 -e TEAM_ID=239854 -e USER_ID=NeverBehave neverbehave/folding-at-home 
 ```
 
 **FOR GPU User**
 
 ```bash
-docker run -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 -e GPU_STATUS=true -e EXTRA_CONFIG="<slot id='1' type='GPU'/>" neverbehave/folding-at-home 
+docker run -d  --restart unless-stopped --name fah-client -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 -e GPU_STATUS=true -e EXTRA_CONFIG="<slot id='1' type='GPU'/>" neverbehave/folding-at-home 
 ```
 
 Then head to http://client.foldingathome.org/ to check your status
+
+#### Stop
+
+```bash
+docker stop fah-client
+```
+
+For more details, please check https://docs.docker.com
 
 ### Setting
 
