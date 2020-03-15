@@ -1,0 +1,88 @@
+# Default values for fah.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: localhost:32000/fah
+  tag: latest
+  pullPolicy: Always
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+app:
+  healthPort: 7396
+  healthPath: "/"
+  port: 7396
+  annotations: {
+    traffic.sidecar.istio.io/excludeOutboundIPRanges: "0.0.0.0/0"
+  }
+service:
+  type: ClusterIP
+  port: 80
+configMap:
+  config.xml: |
+    <config>
+    <!-- Client Control -->
+    <fold-anon v='true'/>
+
+    <!-- Folding Slot Configuration -->
+    <gpu v='true'/>
+
+    <!-- HTTP Server -->
+    #Following allows access from local network
+    <allow v='127.0.0.0/24'/>
+
+    <!-- Remote Command Server -->
+    #Change password for remote access
+    <password v='PASSWORD'/>
+
+    <!-- User Information -->
+    #Change Team Number and Username if desired. Currently folding for UnRAID team!
+    <team v='227802'/> <!-- Your team number (Team UnRAID is # 227802)-->
+    <user v='Anonymous'/> <!-- Enter your user name here -->
+    <passkey v=''/> <!-- 32 hexadecimal characters if provided (Get one here: http://fah-web.stanford.edu/cgi-bin/getpasskey.py)-->
+
+    <!-- Web Server -->
+    #Following allows access from local network
+    <web-allow v='127.0.0.0/24'/>
+
+    <!-- CPU Use -->
+    <power v='full'/> 
+  
+    <!-- Folding Slots -->
+    <slot id='0' type='CPU'/>
+    </config>
+ingress:
+  enabled: false
+
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: fah.local
+      paths: []
+
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: 
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  limits:
+    cpu: 500m
+    memory: 1024Mi
+  requests:
+    cpu: 100m
+    memory: 1024Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
