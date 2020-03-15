@@ -15,7 +15,7 @@
 
   <!-- User Information -->
   # Change Team Number and Username if desired. 
-  <team v='%s'/> <!-- Your team number (Team UnRAID is # 227802)-->
+  <team v='%s'/> <!-- Your team number-->
   <user v='%s'/> <!-- Enter your user name here -->
   <passkey v='%s'/> <!-- 32 hexadecimal characters if provided (Get one here: http://fah-web.stanford.edu/cgi-bin/getpasskey.py)-->
 
