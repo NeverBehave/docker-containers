@@ -4,12 +4,22 @@ MAINTAINER MobiusNine
 #Dockerfile based on Dockerfiles of smdion
 
 # Set correct environment variables
-ENV HOME /root
-ENV DEBIAN_FRONTEND noninteractive
-ENV LC_ALL C.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
-ENV TERM xterm
+ENV HOME="/root" \
+        DEBIAN_FRONTEND=noninteractive\
+        LC_ALL=C.UTF-8 \
+        LANG=en_US.UTF-8 \
+        LANGUAGE=en_US.UTF-8 \
+        TERM=xterm
+
+# Set Config Vars
+ENV GPU_STATUS=false \
+          ALLOW_SUBNET_HTTP="0.0.0.0/0" \
+          PASSWORD="PASSWORD" \
+          TEAM_ID="239854" \
+          USER_ID="Anonymous" \
+          PASSKEY="" \
+          ALLOW_SUBNET_WEB="0.0.0.0/0" \
+          POWER="medium"
 
 #Create Config File
 ADD config.xml /root/config.xml
