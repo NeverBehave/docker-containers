@@ -28,6 +28,12 @@ docker run -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 neverbehave/folding-a
 docker run -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 -e TEAM_ID=239854 -e USER_ID=NeverBehave neverbehave/folding-at-home 
 ```
 
+**有GPU的用户**
+
+```bash
+docker run -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 -e GPU_STATUS=true -e EXTRA_CONFIG="<slot id='1' type='GPU'/>" neverbehave/folding-at-home 
+```
+
 然后打开网页客户端  http://client.foldingathome.org/ 检查客户端状态
 
 ### 设置
@@ -44,6 +50,7 @@ docker run -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 -e TEAM_ID=239854 -e 
 |   PASSKEY   | [String](https://apps.foldingathome.org/getpasskey)                   |          |                |
 | ALLOW_SUBNET_WEB | CIDR Range              |          | 0.0.0.0/0       |
 | POWER        | light,medium,full    |       | medium  |
+|EXTRA_CONFIG|e.g. "<slot id='1' type='GPU'\/>"||
 
 #### 使用自己的配置
 

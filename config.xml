@@ -25,7 +25,8 @@
 
   <!-- CPU Use -->
   <power v='%s'/> 
-  
+
   <!-- Folding Slots -->
   <slot id='0' type='CPU'/>
+  %s
 </config>

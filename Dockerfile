@@ -19,7 +19,8 @@ ENV GPU_STATUS=false \
           USER_ID="Anonymous" \
           PASSKEY="" \
           ALLOW_SUBNET_WEB="0.0.0.0/0" \
-          POWER="medium"
+          POWER="medium" \
+          EXTRA_CONFIG=""
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]

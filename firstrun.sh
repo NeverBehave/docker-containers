@@ -20,7 +20,8 @@ if [ -f ${CONFIG_PATH} ]; then
   APPLIED_TEMPLATE=$(printf "$TEMPLATE_CONFIG" \
               "$GPU_STATUS" "$ALLOW_SUBNET_HTTP" "$PASSWORD" \
               "$TEAM_ID" "$USER_ID" "$PASSKEY" \
-              "$ALLOW_SUBNET_WEB" "$POWER")
+              "$ALLOW_SUBNET_WEB" "$POWER" \
+              "$EXTRA_CONFIG")
 
   echo "[I] Config Created"
   echo "$APPLIED_TEMPLATE"

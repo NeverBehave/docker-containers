@@ -24,6 +24,12 @@ With your team and name
 docker run -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 -e TEAM_ID=239854 -e USER_ID=NeverBehave neverbehave/folding-at-home 
 ```
 
+**FOR GPU User**
+
+```bash
+docker run -p 127.0.0.1:36330:36330 -p 127.0.0.1:7396:7396 -e GPU_STATUS=true -e EXTRA_CONFIG="<slot id='1' type='GPU'/>" neverbehave/folding-at-home 
+```
+
 Then head to http://client.foldingathome.org/ to check your status
 
 ### Setting
@@ -40,6 +46,7 @@ Then head to http://client.foldingathome.org/ to check your status
 |   PASSKEY   | [String](https://apps.foldingathome.org/getpasskey)                   |          |                |
 | ALLOW_SUBNET_WEB | CIDR Range              |          | 0.0.0.0/0       |
 | POWER        | light,medium,full    |       | medium  |
+|EXTRA_CONFIG|e.g. `<slot id='1' type='GPU'/>`||
 
 #### Custom Config
 
